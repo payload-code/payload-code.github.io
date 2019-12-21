@@ -47,13 +47,23 @@ const pl = PayloadReact;
 
 function ProTip() {
   return (
-    <Typography color="textSecondary" style={{ marginTop: 24, }}>
-      For more information on integrating Payload: See the {' '}
-      <Link href="https://github.com/payload-code/payload-react">
-        payload-react
-      </Link>{' '}
-      repo on GitHub.
-    </Typography>
+    <div>
+        <Typography color="textSecondary" style={{ marginTop: 24, }}>
+          For more information on integrating Payload: See the {' '}
+          <Link href="https://github.com/payload-code/payload-react">
+            payload-react
+          </Link>{' '}
+          repo on GitHub and the
+          <Link href="https://docs.payload.co">Payload Documentation</Link>.
+        </Typography>
+        <Typography color="textSecondary" style={{ marginTop: 24, }}>
+          To see the code behind this demo: See the {' '}
+          <Link href="https://github.com/payload-code/payload-code.github.io/blob/master/material-ui-add-payment-details.html">
+            demo source code
+          </Link>{' '}
+          on GitHub.
+        </Typography>
+    </div>
   );
 }
 

@@ -125,7 +125,8 @@
 
             var obj = $(this).serializeObject()
 
-            obj.additional_datafields = [{'section': 'Info', 'fields': obj.additional_datafields }]
+            if ( obj.additional_datafields )
+                obj.additional_datafields = [{'section': 'Info', 'fields': obj.additional_datafields }]
 
             obj.type = 'one_time'
 

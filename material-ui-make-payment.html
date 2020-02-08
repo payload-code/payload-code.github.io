@@ -88,10 +88,11 @@ function App() {
 
 function Payment() {
 	const [open, setOpen] = React.useState(false);
+	var form = null;
 
 	const ref = function(node) {
-		if (!node || node == this.form) return
-		this.form = node
+		if (!node || node == form) return
+		form = node
 
 		node.pl_form.params.autosubmit = false
 		node.pl_form.on('processed', function(data) {

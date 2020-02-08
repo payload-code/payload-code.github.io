@@ -88,15 +88,17 @@ function App() {
 
 function PaymentMethod() {
 	const [open, setOpen] = React.useState(false);
-
+	const [disabled, setDisabled] = React.useState(false);
+	var form = null;
 	const ref = function(node) {
-		if (!node || node == this.form) return
+		if (!node || node == form) return
 
-		this.form = node
+		form = node
 
 		node.pl_form.params.autosubmit = false
 		node.pl_form.on('created', function(data) {
 			setOpen(true);
+			setDisabled(false);
 		})
 
 		node.pl_form.on('focus', function(evt) {
@@ -126,7 +128,11 @@ function PaymentMethod() {
 		setOpen(false);
 	};
 
-	return (<pl.form.payment_method id="checkout-form" className="container" ref={ref}>
+	const handleSubmit = () => {
+		setDisabled(true);
+	};
+
+	return (<pl.form.payment_method id="checkout-form" className="container" ref={ref} onSubmit={handleSubmit}>
 		<pl.input.type type="hidden" value="card"/>
 		<div>
 			<FormControl>
@@ -156,7 +162,7 @@ function PaymentMethod() {
 		</div>
 		<div style={{marginTop:'1rem'}}>
 			<FormControl>
-				<Button variant="contained" color="primary" type="submit">Add Card</Button>
+				<Button variant="contained" color="primary" type="submit" disabled={disabled}>Add Card</Button>
 			</FormControl>
 		</div>
 		<Dialog open={open} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">

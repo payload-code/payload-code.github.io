@@ -115,6 +115,7 @@ function PaymentMethod() {
 
 		node.pl_form.on('invalid', function(evt) {
 			$(evt.target).parent().addClass('Mui-error')
+			setDisabled(false);
 		})
 
 		node.pl_form.on('valid', function(evt) {

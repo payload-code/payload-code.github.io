@@ -175,7 +175,9 @@
 				$('#paid-modal').modal('show')
 			})
 
-			checkout_form.applepay.activate($('.apple-pay-button').get(0))
+			checkout_form.applepay.activate($('.apple-pay-button').get(0), function() {
+				$('.google-pay-support').hide()
+			})
 
 			checkout_form.googlepay.activate($('#google-pay').get(0), function(active) {
 				if ( !active ) {

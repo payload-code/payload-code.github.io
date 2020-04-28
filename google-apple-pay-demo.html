@@ -11,6 +11,7 @@
 
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism-okaidia.min.css" integrity="sha256-iNIdqSl2o3Ge4o0EfZkhHY241Bb4iIBttf1jicmtaC4=" crossorigin="anonymous" />
 
 		<style>
 		.form-control {
@@ -114,14 +115,31 @@
 					</div>
 				</form>
 
-				<pre id="console" class="container">
-				</pre>
+				<h4 class="mt-5 text-muted text-center">Dead Simple Integration</h4>
+				<p class="text-muted">
+					Integrating Google Pay and Apple Pay on the web in just a few lines of
+					javascript with <b>Payload.js</b> and <a href="https://docs.payload.co/#secure-input" target="_blank">Secure Inputs</a>.
+				</p>
+				<pre class="shadow"><code class="language-html">
+&lt;script src="https://payload.co/Payload.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+Payload('test_client_key_3bcr16ohAy8aEcwK3Vffs')
+
+const checkout = new Payload.Form($('#checkout-form').get(0))
+	.applepay($('#apple-pay').get(0))
+	.googlepay($('#google-pay').get(0))
+	.on('processed', function(evt) {
+		console.log(evt.transaction_id)
+	})
+
+&lt;/script&gt;
+				</code></pre>
 
 				<div class="container">
 					<div class="row pt-3">
 						<div class="col px-1 text-muted">
-							<p>See the <a href="https://github.com/payload-code/payload-code.github.io/blob/master/google-apple-pay-demo.html">source code</a> for this demo on GitHub.</p>
-							<p>For more information on integrating Payload, see the full <a href="https://docs.payload.co">API Documentation</a>.</p>
+							<p>See the <a href="https://github.com/payload-code/payload-code.github.io/blob/master/google-apple-pay-demo.html">full source code</a> for this demo on GitHub.</p>
+							<p>For more information on integrating Payload, see the complete <a href="https://docs.payload.co">API Documentation</a>.</p>
 						</div>
 					</div>
 				</div>
@@ -151,7 +169,7 @@
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js" integrity="sha256-3teItwIfMuVB74Alnxw/y5HAZ2irOsCULFff3EgbtEs=" crossorigin="anonymous"></script>
 		<script src="https://payload.co/Payload.js"></script>
 
 		<script>
@@ -175,11 +193,12 @@
 				$('#paid-modal').modal('show')
 			})
 
-			checkout_form.applepay.activate($('.apple-pay-button').get(0), function() {
-				$('.google-pay-support').hide()
+			checkout_form.applepay($('.apple-pay-button').get(0), function(active) {
+				if (active)
+					$('.google-pay-support').hide()
 			})
 
-			checkout_form.googlepay.activate($('#google-pay').get(0), function(active) {
+			checkout_form.googlepay($('#google-pay').get(0), function(active) {
 				if ( !active ) {
 					$('#google-pay')
 						.tooltip({title:'Google Pay not available'})

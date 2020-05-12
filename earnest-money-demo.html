@@ -38,6 +38,8 @@
         <main role="main" class="mt-4">
             <form id="payment-request" class="my-2 container px-5" style="width:60%">
 <input type="hidden" name="description" value="Earnest Money Payment"/>
+<input type="hidden" name="checkout_options[payment_method_preview]" value="true"/>
+<input type="hidden" name="checkout_options[billing_address]" value="false"/>
 
 <div class="card-body">
     <div class="row">
@@ -144,7 +146,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Your Payment Request was Setn!</h5>
+            <h5 class="modal-title">Your Payment Request was Sent!</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

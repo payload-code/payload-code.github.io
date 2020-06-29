@@ -102,9 +102,8 @@
 						</div>
 						<div class="google-pay-support">
 							<div class="col-0">
-								<!--<button id="google-pay" class="btn btn-light border px-5" type="button">
-									<img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Google_Pay_%28GPay%29_Logo.svg" style="width:2rem"/>
-								</button>-->
+								<button id="google-pay" class="gpay-button black short" type="button">
+								</button>
 							</div>
 						</div>
 						<div class="apple-pay-support col row align-items-center">
@@ -179,9 +178,10 @@ const checkout = new Payload.Form({
 
 			const paymentsClient = new google.payments.api.PaymentsClient({environment: 'TEST'});
 			const button = paymentsClient.createButton({onClick: () => console.log('TODO: click handler')});
-			button.setAttribute('id', 'google-pay')
+			//button.setAttribute('id', 'google-pay')
 
-			$('.google-pay-support div').append(button)
+			//$('.google-pay-support div').append(button)
+			//$(button).removeClass('long').addClass('short')
 
 			var checkout_form = new Payload.Form({
 				form: $('#checkout-form').get(0),

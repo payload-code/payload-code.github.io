@@ -102,9 +102,9 @@
 						</div>
 						<div class="google-pay-support">
 							<div class="col-0">
-								<button id="google-pay" class="btn btn-light border px-5" type="button">
+								<!--<button id="google-pay" class="btn btn-light border px-5" type="button">
 									<img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Google_Pay_%28GPay%29_Logo.svg" style="width:2rem"/>
-								</button>
+								</button>-->
 							</div>
 						</div>
 						<div class="apple-pay-support col row align-items-center">
@@ -169,10 +169,19 @@ const checkout = new Payload.Form({
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js" integrity="sha256-3teItwIfMuVB74Alnxw/y5HAZ2irOsCULFff3EgbtEs=" crossorigin="anonymous"></script>
+		<script
+		  src="https://pay.google.com/gp/p/js/pay.js">
+		</script>
 		<script src="https://payload.co/Payload.js"></script>
 
 		<script>
 			Payload('test_client_key_3bcr16ohAy8aEcwK3Vffs')
+
+			const paymentsClient = new google.payments.api.PaymentsClient({environment: 'TEST'});
+			const button = paymentsClient.createButton({onClick: () => console.log('TODO: click handler')});
+			button.setAttribute('id', 'google-pay')
+
+			$('.google-pay-support div').append(button)
 
 			var checkout_form = new Payload.Form({
 				form: $('#checkout-form').get(0),

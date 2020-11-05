@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="https://payload.co/img/favicon.png">
+
+    <title>Payload MaterialUI Example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <style>
+    .form-control.pl-input.pl-focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+        outline:none;
+    }
+    .form-control.pl-input.pl-focus.is-invalid {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 0.2rem rgba(220,53,69,.25);
+    }
+    </style>
+  </head>
+  <body>
+    <simple-checkout class="container d-block">Loading</simple-checkout>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.17/Rx.umd.min.js" integrity="sha512-v26DqtIwv7Qh/lroshoRnG21Lix4shOnYU7jz11PJuYvOGChizIwZMNHVtaBBBZWoxFImmw/4Z8CLdmyu6uUeQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.17/angular2-polyfills.min.js" integrity="sha512-Wia+IRByTAdWX1aqpLZ+29J2WEYizIZsX+dun5i8IJzjYlaa1JeX8HO51FLbHmR1f9u3mSyWcJeBbUi4RuttiQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.17/angular2-all.umd.min.js" integrity="sha512-wrpMR9oVhRqWmmbUB2XUNnnQ6gawPHStVTmznolNIx+ntWGM8WL/PC0r/ma7K/pnTNAbgKdrWp7bPeiOP/UbLA==" crossorigin="anonymous"></script>
+
+    <script src="https://payload.co/Payload.js"></script>
+
+    <script>Payload('test_client_key_3btrkEyC6xvcByXLthuZx');</script>
+
+    <script>
+        (function() {
+            var CheckoutForm = ng.core.Component({
+              selector: 'checkout-form',
+              template: '<form #checkoutForm class="my-2 container col-md-8 col-lg-5 px-lg-5" pl-form="payment">'+
+                            '<div class="row">'+
+                                '<div class="form-group col-4 px-1">'+
+                                    '<label>Amount</label>'+
+                                    '<div class="input-group">'+
+                                        '<div class="input-group-prepend">'+
+                                            '<span class="input-group-text" id="basic-addon1">$</span>'+
+                                        '</div>'+
+                                        '<input class="form-control" pl-input="amount" type="text" name="amount" placeholder="Amount"/>'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="form-group col-8 px-1">'+
+                                    '<label>Cardholder Name</label>'+
+                                    '<input class="form-control w-100" pl-input="account_holder" type="text" placeholder="First Last" />'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="row pt-2">'+
+                                '<div class="form-group col-7 px-1">'+
+                                    '<label>Card Number</label>'+
+                                    '<div class="form-control" pl-input="card_number"></div>'+
+                                '</div>'+
+                                '<div class="form-group col-3 px-1">'+
+                                    '<label>Expiration</label>'+
+                                    '<div class="form-control" pl-input="expiry"></div>'+
+                                '</div>'+
+                                '<div class="form-group col-2 px-1">'+
+                                    '<label>CVC</label>'+
+                                    '<div class="form-control" pl-input="cvc"></div>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="row pt-2">'+
+                                '<div class="col px-1"><button class="btn btn-primary" type="submit">Pay Now</button></div>'+
+                            '</div>'+
+                            '<div class="row pt-3">'+
+                                '<div class="col px-1">'+
+                                    '<p>For more information on integrating Payload: See the full <a href="https://docs.payload.co">API Documentation</a>.</p>'+
+                                    '<p>See the <a href="https://github.com/payload-code/payload-code.github.io/blob/master/angular-checkout.html">source code</a> for this demo on GitHub.</p>'+
+                                '</div>'+
+                            '</div>'+
+                        '</form>',
+              queries : {
+                  checkoutForm : new ng.core.ViewChild('checkoutForm')
+              },
+              outputs: ["processed", "declined"],
+            }).Class({
+              constructor: function() {
+                this.processed = new ng.core.EventEmitter()
+                this.declined = new ng.core.EventEmitter()
+              },
+              ngAfterViewInit: function() {
+                var checkout_form = new Payload.Form({
+                    form: this.checkoutForm.nativeElement,
+                    styles:{invalid:'is-invalid'},
+                    autosubmit: false
+                })
+
+                checkout_form.on('error', function(error) {
+                    console.log(error)
+                })
+
+                checkout_form.on('processed', function(data) {
+                    this.processed.next(null)
+                }.bind(this))
+
+                checkout_form.on('declined', function(data) {
+                    this.declined.next(null)
+                }.bind(this))
+
+              }
+            });
+
+            var ProcessedModal = ng.core.Component({
+              selector: 'processed-modal',
+              template: '<div #modal class="modal" tabindex="-1" role="dialog">'+
+                      '<div class="modal-dialog" role="document">'+
+                        '<div class="modal-content">'+
+                          '<div class="modal-header">'+
+                            '<h5 class="modal-title">Your Payment Was Successful!</h5>'+
+                            '<button type="button" class="close" data-dismiss="modal" aria-label="Close">'+
+                              '<span aria-hidden="true">&times;</span>'+
+                            '</button>'+
+                          '</div>'+
+                          '<div class="modal-body">'+
+                            '<p>Thanks for trying out Payload!</p>'+
+                          '</div>'+
+                          '<div class="modal-footer">'+
+                            '<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>'+
+                          '</div>'+
+                        '</div>'+
+                      '</div>'+
+                    '</div>',
+              queries : {
+                  modal : new ng.core.ViewChild('modal')
+              },
+            }).Class({
+               constructor: function() {},
+               showModal: function() {
+                $(this.modal.nativeElement).modal('show')
+               }
+            })
+
+            var DeclinedModal = ng.core.Component({
+              selector: 'declined-modal',
+              template: '<div id="declined-modal" class="modal" tabindex="-1" role="dialog">'+
+                  '<div class="modal-dialog" role="document">'+
+                    '<div class="modal-content">'+
+                      '<div class="modal-header">'+
+                        '<h5 class="modal-title">Your Payment Declined!</h5>'+
+                        '<button type="button" class="close" data-dismiss="modal" aria-label="Close">'+
+                          '<span aria-hidden="true">&times;</span>'+
+                        '</button>'+
+                      '</div>'+
+                      '<div class="modal-body">'+
+                        '<p>Please try again</p>'+
+                      '</div>'+
+                      '<div class="modal-footer">'+
+                        '<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>'+
+                      '</div>'+
+                    '</div>'+
+                  '</div>'+
+                '</div>',
+              queries : {
+                  modal : new ng.core.ViewChild('modal')
+              },
+            }).Class({
+               constructor: function() {},
+               showModal: function() {
+                $(this.modal.nativeElement).modal('show')
+               }
+            })
+
+            var AppComponent = ng.core.Component({
+              selector: 'simple-checkout',
+              template: '<main role="main" class="mt-4">'+
+                        '<div class="jumbotron">'+
+                            '<div class="col-sm-8 mx-auto">'+
+                                '<h1 class="text-center">Simple Checkout</h1>'+
+                            '</div>' +
+                        '</div>' +
+                        '<checkout-form (processed)="processed()"  (declined)="declined()"></checkout-form>'+
+                        '<processed-modal #processedModal></processed-modal>'+
+                        '<declined-modal #declinedModal></declined-modal>',
+              directives: [CheckoutForm, ProcessedModal, DeclinedModal],
+              queries : {
+                  processedModal : new ng.core.ViewChild('processedModal'),
+                  declinedModal : new ng.core.ViewChild('declinedModal')
+              },
+            }).Class({
+              constructor: function() {
+                this.processed = function(){
+                    this.processedModal.showModal()
+                }.bind(this)
+                this.declined = function(){
+                    this.declinedModal.showModal()
+                }.bind(this)
+
+              }
+            });
+
+            document.addEventListener("DOMContentLoaded", function() {
+              ng.platform.browser.bootstrap(AppComponent);
+            });
+        })();
+    </script>
+
+  </body>
+</html>

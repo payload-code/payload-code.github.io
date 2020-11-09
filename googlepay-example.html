@@ -63,9 +63,7 @@
 							</div>
 						</div>
 						<div class="google-pay-support">
-							<div class="col-0 form-group">
-								<button id="google-pay" class="gpay-button black short" type="button">
-								</button>
+							<div class="col-0 form-group" style="height:40px">
 							</div>
 						</div>
 					</div>
@@ -112,6 +110,8 @@
 			const paymentsClient = new google.payments.api.PaymentsClient({environment: 'TEST'});
 			const button = paymentsClient.createButton({onClick: () => console.log('TODO: click handler')});
 
+			$('.google-pay-support>div').html(button)
+
 			var checkout_form = new Payload.Form({
 				form: $('#checkout-form').get(0),
 				styles: {invalid: 'is-invalid'},
@@ -130,7 +130,7 @@
 				$('#paid-modal').modal('show')
 			})
 
-			checkout_form.googlepay($('#google-pay').get(0), function(active) {
+			checkout_form.googlepay(button, function(active) {
 				if ( !active ) {
 					$('#google-pay')
 						.tooltip({title:'Google Pay not available'})

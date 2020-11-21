@@ -178,6 +178,7 @@ const checkout = new Payload.Form({
 
 			const paymentsClient = new google.payments.api.PaymentsClient({environment: 'TEST'});
 			const button = paymentsClient.createButton({onClick: () => console.log('TODO: click handler')});
+			$('.google-pay-support>div').html(button)
 			//button.setAttribute('id', 'google-pay')
 
 			//$('.google-pay-support div').append(button)

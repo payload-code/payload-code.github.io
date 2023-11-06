@@ -1,7 +1,8 @@
 import React from 'react';
 import * as MaterialUI from '@material-ui/core';
 import $ from 'jquery';
-import Payload from 'payload-react';
+import regeneratorRuntime from "regenerator-runtime";
+import { PayloadForm, PayloadInput } from 'payload-react';
 import ReactDOM from 'react-dom';
 
 function PaymentMethod() {

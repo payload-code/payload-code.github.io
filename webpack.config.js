@@ -58,18 +58,5 @@ module.exports = {
     filename: '[name].html',
     template: './src/material-ui-add-payment-details.html',
     inject: true,
-
   })],
 };
-
-function generateHtmlPlugins(outputDir) {
-  const files = glob.sync(path.join('./src', '**', '*.html'));
-  return files.map((file) => {
-    return new HtmlWebpackPlugin({
-      filename: path.relative(outputDir, file),
-      template: file,
-      inject: true,
-      chunks: [],
-    });
-  });
-}

@@ -12,16 +12,28 @@ const getEntryApps = () => {
   });
 
   return entryPoints;
-}
+};
 
-const entry = getEntryApps()
+const entry = getEntryApps();
+
+const getHtmlPlugins = () => {
+  const htmlFiles = glob.sync(path.join(__dirname, 'src/*.html'));
+  return htmlFiles.map((htmlFile) => {
+    const name = path.basename(htmlFile, '.html');
+    return new HtmlWebpackPlugin({
+      filename: `${name}.html`,
+      template: htmlFile,
+      inject: true,
+    });
+  });
+};
 
 module.exports = {
   entry,
   output: {
     filename: 'js/[name].js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true
+    clean: true,
   },
   mode: 'development',
   devServer: {
@@ -47,16 +59,12 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react',],
+            presets: ['@babel/preset-env', '@babel/preset-react'],
             plugins: ['@babel/plugin-transform-runtime'],
           },
         },
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin( {
-    filename: '[name].html',
-    template: './src/material-ui-add-payment-details.html',
-    inject: true,
-  })],
+  plugins: [...getHtmlPlugins()],
 };

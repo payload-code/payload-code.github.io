@@ -1,0 +1,6 @@
+-   repo: https://github.com/pre-commit/mirrors-eslint
+    hooks:
+    -   id: eslint
+-   repo: https://github.com/pre-commit/mirrors-prettier
+    hooks:
+    -   id: prettier

@@ -1,123 +1,124 @@
-import React from 'react';
-import * as MaterialUI from '@material-ui/core';
-import $ from 'jquery';
-import regeneratorRuntime from "regenerator-runtime";
-import { PayloadForm, PayloadInput } from 'payload-react';
+import RegeneratorRuntime from 'regenerator-runtime';
+import React, { useState, useRef } from 'react';
+import Payload from 'payload-react';
 import ReactDOM from 'react-dom';
+import {
+  Typography,
+  TextField,
+  Container,
+  Box,
+  Link,
+  FormControl,
+  InputLabel,
+  Input,
+  Button,
+  Dialog,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  DialogActions
+} from '@material-ui/core';
+import {
+  PaymentForm,
+  PayloadInput,
+  CardNumber,
+  Expiry,
+  CardCode
+} from 'payload-react';
 
-function PaymentMethod() {
-  const [open, setOpen] = React.useState(false);
-  const [disabled, setDisabled] = React.useState(false);
-  var form = null;
-
-  const ref = function (node) {
-    if (!node || node == form) return;
-
-    form = node;
-
-    node.pl_form.params.autosubmit = false;
-    node.pl_form.on('created', function (data) {
-      setOpen(true);
-      setDisabled(false);
-    });
-
-    node.pl_form.on('focus', function (evt) {
-      $(evt.target).parent().addClass('Mui-focused');
-      if ($(evt.target).parent().prev().hasClass('MuiInputLabel-root'))
-        $(evt.target).parent().prev().addClass('Mui-focused MuiInputLabel-shrink');
-    });
-
-    node.pl_form.on('blur', function (evt) {
-      $(evt.target).parent().removeClass('Mui-focused');
-      if ($(evt.target).parent().prev().hasClass('MuiInputLabel-root'))
-        $(evt.target).parent().prev().removeClass('Mui-focused MuiInputLabel-shrink');
-    });
-
-    node.pl_form.on('invalid', function (evt) {
-      $(evt.target).parent().addClass('Mui-error');
-      setDisabled(false);
-    });
-
-    node.pl_form.on('valid', function (evt) {
-      $(evt.target).parent().removeClass('Mui-error');
-    });
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const handleSubmit = () => {
-    setDisabled(true);
-  };
-
+function ProTip() {
   return (
-    <PayloadForm
-      formId="checkout-form"
-      className="container"
-      ref={ref}
-      onSubmit={handleSubmit}
-    >
-      <PayloadInput type="hidden" value="card" />
-      <div>
-        <MaterialUI.FormControl>
-          <MaterialUI.InputLabel>Card Number</MaterialUI.InputLabel>
-          <div className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl" style={{ width: '15rem' }}>
-            <PayloadInput
-              className="MuiInputBase-input MuiInput-input"
-              type="card_number"
-              placeholder=""
-            />
-          </div>
-        </MaterialUI.FormControl>
-        <MaterialUI.FormControl>
-          <MaterialUI.InputLabel>Expires</MaterialUI.InputLabel>
-          <div className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl" style={{ width: '4rem' }}>
-            <PayloadInput
-              className="MuiInputBase-input MuiInput-input"
-              type="expiry"
-              placeholder=""
-            />
-          </div>
-        </MaterialUI.FormControl>
-        <MaterialUI.FormControl>
-          <MaterialUI.InputLabel>CVC</MaterialUI.InputLabel>
-          <div className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl" style={{ width: '4rem' }}>
-            <PayloadInput
-              className="MuiInputBase-input MuiInput-input"
-              type="card_code"
-              placeholder=""
-            />
-          </div>
-        </MaterialUI.FormControl>
-      </div>
-      <div>
-        <MaterialUI.FormControl style={{ width: '23rem' }}>
-          <MaterialUI.InputLabel htmlFor="my-input">Account Holder</MaterialUI.InputLabel>
-          <MaterialUI.Input id="my-input" aria-describedby="my-helper-text" inputProps={{ "pl-input": "account_holder" }} />
-        </MaterialUI.FormControl>
-      </div>
-      <div style={{ marginTop: '1rem' }}>
-        <MaterialUI.FormControl>
-          <MaterialUI.Button variant="contained" color="primary" type="submit" disabled={disabled}>Add Card</MaterialUI.Button>
-        </MaterialUI.FormControl>
-      </div>
-      <MaterialUI.Dialog open={open} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
-        <MaterialUI.DialogTitle id="alert-dialog-title" color="primary">Your Payment Method Was Added!</MaterialUI.DialogTitle>
-        <MaterialUI.DialogContent>
-          <MaterialUI.DialogContentText id="alert-dialog-description">
-            Thanks for trying out Payload
-          </MaterialUI.DialogContentText>
-        </MaterialUI.DialogContent>
-        <MaterialUI.DialogActions>
-          <MaterialUI.Button onClick={handleClose} color="primary" autoFocus>
-            Close
-          </MaterialUI.Button>
-        </MaterialUI.DialogActions>
-      </MaterialUI.Dialog>
-    </PayloadForm>
+    <div>
+      <Typography color="textSecondary" style={{ marginTop: 24 }}>
+        For more information on integrating Payload: See the{' '}
+        <Link href="https://github.com/payload-code/payload-react">
+          payload-react
+        </Link>{' '}
+        repo on GitHub and the{' '}
+        <Link href="https://docs.payload.co">Payload Documentation</Link>.
+      </Typography>
+
+      <Typography color="textSecondary" style={{ marginTop: 24 }}>
+        See the{' '}
+        <Link href="https://github.com/payload-code/payload-code.github.io/blob/master/material-ui-add-payment-details.html">
+          source code
+        </Link>{' '}
+        for this demo on GitHub.
+      </Typography>
+    </div>
   );
 }
 
-ReactDOM.render(<PaymentMethod />, document.getElementById('root'));
+function PaymentMethod() {
+    const [open, setOpen] = useState(false);
+    const [disabled, setDisabled] = useState(false);
 
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+  return (
+   <PaymentForm
+      clientToken={'test_client_key_3btrkEyC6xvcByXLthuZx'}
+      className="container"
+      styles={{ invalid: 'is-invalid' }}
+      onProcessed={(evt)=>{
+        alert(`Processed: ${evt.transaction_id}`)
+      }}
+      onError={(evt)=>{
+        alert(evt.message)
+      }}
+    >
+    <div className="row pt-2">
+      <FormControl fullWidth className="form-group col-12" variant="outlined">
+        <CardNumber 
+          id="card-number"
+          className="form-control"
+          component={TextField}
+        />
+      </FormControl>
+      <FormControl fullWidth className="form-group col-6" variant="outlined">
+        <Expiry 
+          id="expiry"
+          className="form-control"
+          component={TextField}
+        />
+      </FormControl>
+      <FormControl fullWidth className="form-group col-6" variant="outlined">
+        <CardCode 
+          id="cvc"
+          className="form-control"
+          component={TextField}
+        />
+      </FormControl>
+    </div>
+    <div className="row pt-2">
+      <Button 
+        variant="contained" 
+        color="primary" 
+        type="submit" 
+        disabled={disabled} 
+        fullWidth
+      >
+        Add Card
+      </Button>
+    </div>
+  </PaymentForm>
+  );
+}
+
+function App() {
+  return (
+    <Container maxWidth="xs">
+      <div style={{ marginTop: 24 }}>
+        <Typography variant="h4" component="h1" gutterBottom>
+          Add Payment Details
+        </Typography>
+        <PaymentMethod />
+        <ProTip />
+      </div>
+    </Container>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));

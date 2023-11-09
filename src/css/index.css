@@ -1,0 +1,67 @@
+    .jumbotron {
+      background: #4f5b66;
+      color: #87d3ff;
+    }
+
+    .feature-list {
+      /*  padding: 0 28px;*/
+    }
+
+    .feature-list .col-xl {
+      margin: 5px;
+    }
+
+    .feature-list .col-xl:nth-child(odd) {
+      margin-left: 0;
+    }
+
+    .feature-list .col-xl:nth-child(even) {
+      margin-right: 0;
+    }
+
+    @media (max-width: 1200px) {
+      .feature-list .col-xl {
+        margin: 5px 0;
+      }
+    }
+
+    .feature-list .col-xl a {
+      padding: 10px 10px 5px 5px;
+      border-radius: 0.3em;
+      display: block;
+      height: 100%;
+      box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+      background: #4f5b66;
+      text-shadow: none;
+      color: #a7adba;
+      font-size: 12px;
+      font-weight: normal;
+    }
+
+    .feature-list .col-xl a>div>i {
+      float: left;
+      font-size: 3em;
+      margin-top: -0.2em;
+      color: #d1dfe7;
+      margin-right: 5px;
+      margin-bottom: 10px;
+    }
+
+    .feature-list .col-xl a h4 {
+      font-size: 14px;
+      margin: 0;
+      color: #87d3ff;
+    }
+
+    .feature-list .col-xl a:hover {
+      color: white;
+      background: #5f6b76;
+    }
+
+    .feature-list .col-xl a:hover i {
+      color: white;
+    }
+
+    .feature-list .col-xl a:hover h4 {
+      color: #a7f3ff;
+    }

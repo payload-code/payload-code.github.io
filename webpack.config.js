@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const getEntryApps = () => {
   const entryPoints = {};
-  const jsxFiles = glob.sync(path.join(__dirname, 'src/js/components/*.jsx'));
+  const jsxFiles = glob.sync(path.join(__dirname, 'src', 'js', 'components', '*.jsx').replace(/\\/g, '/'));
 
   jsxFiles.forEach((file) => {
     const name = path.basename(file, '.jsx');
@@ -56,7 +56,7 @@ module.exports = {
   },
   plugins: [new HtmlWebpackPlugin( {
     filename: '[name].html',
-    template: './src/material-ui-add-payment-details.html',
+    template: path.join(__dirname, 'src', 'material-ui-add-payment-details.html'),
     inject: true,
   })],
 };

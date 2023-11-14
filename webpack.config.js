@@ -54,9 +54,17 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin( {
-    filename: '[name].html',
-    template: path.join(__dirname, 'src', 'material-ui-add-payment-details.html'),
-    inject: true,
-  })],
+  plugins: [
+        new HtmlWebpackPlugin( {
+      filename: 'material-ui-add-payment-details.html',
+      template: path.join(__dirname, 'src', 'material-ui-add-payment-details.html'),
+      inject: true,
+          chunks: ['material-ui-add-payment-details'],
+        }),
+      new HtmlWebpackPlugin( {
+        filename: 'material-ui-make-payment.html',
+        template: path.join(__dirname, 'src', 'material-ui-make-payment.html'),
+        inject: true,
+        chunks: ['material-ui-make-payment'],
+      })],
 };

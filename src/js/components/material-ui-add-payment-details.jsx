@@ -91,6 +91,11 @@ function PaymentMethod() {
                   if ($(evt.target).parent().prev().hasClass('MuiInputLabel-root'))
                     $(evt.target).parent().prev().removeClass('Mui-focused MuiInputLabel-shrink');
                 }}
+              focus={function (evt) {
+                  $(evt.target).parent().addClass('Mui-focused');
+                  if ($(evt.target).parent().prev().hasClass('MuiInputLabel-root'))
+                    $(evt.target).Fparent().prev().addClass('Mui-focused MuiInputLabel-shrink');
+                }}
             />
           </div>
         </FormControl>

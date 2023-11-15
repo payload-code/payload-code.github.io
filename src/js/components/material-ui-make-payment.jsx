@@ -19,8 +19,6 @@ import {
   DialogActions
 } from '@material-ui/core';
 
-const pl = PayloadReact;
-
 function ProTip() {
   return (
     <div>
@@ -62,33 +60,32 @@ function Payment() {
 	var form = null;
 
 	const ref = function(node) {
-		if (!node || node == form) return
-		form = node
-
-		node.pl_form.params.autosubmit = false
-		node.pl_form.on('processed', function(data) {
-			setOpen(true);
-		})
-
-		node.pl_form.on('focus', function(evt) {
-			$(evt.target).parent().addClass('Mui-focused')
-			if ( $(evt.target).parent().prev().hasClass('MuiInputLabel-root') )
-				$(evt.target).parent().prev().addClass('Mui-focused MuiInputLabel-shrink')
-		})
-
-		node.pl_form.on('blur', function(evt) {
-			$(evt.target).parent().removeClass('Mui-focused')
-			if ( $(evt.target).parent().prev().hasClass('MuiInputLabel-root') )
-				$(evt.target).parent().prev().removeClass('Mui-focused MuiInputLabel-shrink')
-		})
-
-		node.pl_form.on('invalid', function(evt) {
-			$(evt.target).parent().addClass('Mui-error')
-		})
-
-		node.pl_form.on('valid', function(evt) {
-			$(evt.target).parent().removeClass('Mui-error')
-		})
+    console.log(node);
+	//
+	// 	node.pl_form.params.autosubmit = false
+	// 	node.pl_form.on('processed', function(data) {
+	// 		setOpen(true);
+	// 	})
+	//
+	// 	node.pl_form.on('focus', function(evt) {
+	// 		$(evt.target).parent().addClass('Mui-focused')
+	// 		if ( $(evt.target).parent().prev().hasClass('MuiInputLabel-root') )
+	// 			$(evt.target).parent().prev().addClass('Mui-focused MuiInputLabel-shrink')
+	// 	})
+	//
+	// 	node.pl_form.on('blur', function(evt) {
+	// 		$(evt.target).parent().removeClass('Mui-focused')
+	// 		if ( $(evt.target).parent().prev().hasClass('MuiInputLabel-root') )
+	// 			$(evt.target).parent().prev().removeClass('Mui-focused MuiInputLabel-shrink')
+	// 	})
+	//
+	// 	node.pl_form.on('invalid', function(evt) {
+	// 		$(evt.target).parent().addClass('Mui-error')
+	// 	})
+	//
+	// 	node.pl_form.on('valid', function(evt) {
+	// 		$(evt.target).parent().removeClass('Mui-error')
+	// 	})
 
 
 	}
@@ -97,28 +94,29 @@ function Payment() {
 		setOpen(false);
 	};
 
-	return (<pl.form.payment id="checkout-form" className="container" ref={ref}>
+	return (
+    <PayloadForm FormId="checkout-form" className="container" ref={ref}>
         <Typography component="p" gutterBottom>
 			Amount: $10.00
 		</Typography>
-		<pl.input.amount type="hidden" value="10.00"/>
+		<PayloadInput type="hidden" value="10.00"/>
 		<div>
 			<FormControl>
 				<InputLabel>Card Number</InputLabel>
 				<div className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl" style={{width:'15rem'}}>
-				<pl.input.card_number className="MuiInputBase-input MuiInput-input" placeholder=""/>
+				<PayloadInput className="MuiInputBase-input MuiInput-input" placeholder=""/>
 				</div>
 			</FormControl>
 			<FormControl>
 				<InputLabel>Expires</InputLabel>
 				<div className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl" style={{width:'4rem'}}>
-				<pl.input.expiry className="MuiInputBase-input MuiInput-input" placeholder=""/>
+				<PayloadInput className="MuiInputBase-input MuiInput-input" placeholder=""/>
 				</div>
 			</FormControl>
 			<FormControl>
 				<InputLabel>CVC</InputLabel>
 				<div className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl" style={{width:'4rem'}}>
-					<pl.input.card_code className="MuiInputBase-input MuiInput-input" placeholder=""/>
+					<PayloadInput className="MuiInputBase-input MuiInput-input" placeholder=""/>
 				</div>
 			</FormControl>
 		</div>
@@ -146,7 +144,7 @@ function Payment() {
 			  </Button>
 			</DialogActions>
 		</Dialog>
-	</pl.form.payment>)
+	</PayloadForm>)
 }
 
-ReactDOM.render(<App/>, document.querySelector('root'));
+ReactDOM.render(<App/>, document.querySelector('#root'));

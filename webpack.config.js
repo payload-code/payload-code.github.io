@@ -4,10 +4,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const getEntryApps = () => {
   const entryPoints = {};
-  const jsxFiles = glob.sync(path.join(__dirname, 'src', 'js', 'components', '*.jsx').replace(/\\/g, '/'));
 
-  jsxFiles.forEach((file) => {
-    const name = path.basename(file, '.jsx');
+  const jsxFiles = glob.sync(path.join(__dirname, 'src', 'js', 'components', '*.jsx').replace(/\\/g, '/'));
+  const jsFiles = glob.sync(path.join(__dirname, 'src', 'js', '*.js').replace(/\\/g, '/'));
+
+
+  const entries = [...jsxFiles, ...jsFiles];
+
+  entries.forEach((file) => {
+    const ext = path.extname(file);
+    const name = path.basename(file, ext);
     entryPoints[name] = file;
   });
 

@@ -85,7 +85,7 @@ function PaymentMethod() {
                 $(evt.target).parent().addClass('Mui-error');
                 setDisabled(false);
               }}
-              blur={function (evt) {
+              onBlur={function (evt) {
                 console.log(evt);
                   $(evt.target).parent().removeClass('Mui-focused');
                   if ($(evt.target).parent().prev().hasClass('MuiInputLabel-root'))

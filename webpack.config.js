@@ -99,5 +99,12 @@ module.exports = {
         template: path.join(__dirname, 'src', 'bootstrap4-simple-checkout.html'),
         inject: true,
         chunks: ['bootstrap4-simple-checkout'],
+      }),
+
+      new HtmlWebpackPlugin( {
+        filename: 'earnest-money-demo.html',
+        template: path.join(__dirname, 'src', 'earnest-money-demo.html'),
+        inject: true,
+        chunks: ['earnest-money-demo'],
       })],
 };

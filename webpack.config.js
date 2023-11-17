@@ -17,6 +17,20 @@ const getEntryApps = () => {
   return entryPoints;
 }
 
+const generateHtmlPlugins = () => {
+  const templateFiles = glob.sync(path.join(__dirname, 'src', '*.html'));
+  return templateFiles.map(item => {
+    const name = path.basename(item, '.html');
+    return new HtmlWebpackPlugin({
+      filename: `${name}.html`,
+      template: path.join(__dirname, 'src', `${name}.html`),
+      inject: true,
+      chunks: [name],
+    });
+  });
+};
+const htmlPlugins = generateHtmlPlugins();
+
 const entry = getEntryApps()
 
 module.exports = {
@@ -58,53 +72,6 @@ module.exports = {
     ],
   },
   plugins: [
-      new HtmlWebpackPlugin( {
-        filename: 'index.html',
-        template: path.join(__dirname, 'src', 'index.html'),
-        inject: true,
-        chunks: ['index'],
-        }),
-      new HtmlWebpackPlugin( {
-        filename: 'material-ui-add-payment-details.html',
-        template: path.join(__dirname, 'src', 'material-ui-add-payment-details.html'),
-        inject: true,
-        chunks: ['material-ui-add-payment-details'],
-        }),
-      new HtmlWebpackPlugin( {
-        filename: 'material-ui-make-payment.html',
-        template: path.join(__dirname, 'src', 'material-ui-make-payment.html'),
-        inject: true,
-        chunks: ['material-ui-make-payment'],
-      }),
-      new HtmlWebpackPlugin( {
-        filename: 'bootstrap4-checkout-with-billing-address.html',
-        template: path.join(__dirname, 'src', 'bootstrap4-checkout-with-billing-address.html'),
-        inject: true,
-        chunks: ['bootstrap4-checkout-with-billing-address'],
-      }),
-      new HtmlWebpackPlugin( {
-        filename: 'bootstrap4-save-billing-details.html',
-        template: path.join(__dirname, 'src', 'bootstrap4-save-billing-details.html'),
-        inject: true,
-        chunks: ['bootstrap4-save-billing-details'],
-      }),
-      new HtmlWebpackPlugin( {
-        filename: 'bootstrap4-simple-card-input-checkout.html',
-        template: path.join(__dirname, 'src', 'bootstrap4-simple-card-input-checkout.html'),
-        inject: true,
-        chunks: ['bootstrap4-simple-card-input-checkout'],
-      }),
-      new HtmlWebpackPlugin( {
-        filename: 'bootstrap4-simple-checkout.html',
-        template: path.join(__dirname, 'src', 'bootstrap4-simple-checkout.html'),
-        inject: true,
-        chunks: ['bootstrap4-simple-checkout'],
-      }),
-
-      new HtmlWebpackPlugin( {
-        filename: 'earnest-money-demo.html',
-        template: path.join(__dirname, 'src', 'earnest-money-demo.html'),
-        inject: true,
-        chunks: ['earnest-money-demo'],
-      })],
+    ...htmlPlugins,
+  ],
 };

@@ -4,9 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const getEntryApps = () => {
   const entryPoints = {};
-  const filesPattern = path.join(__dirname, 'src', 'js', '**', '*.{js,jsx}').replace(/\\/g, '/');
 
-  const files = glob.sync(filesPattern);
+  const files = glob.sync(path.join(__dirname, 'src', 'js', '**', '*.{js,jsx}').replace(/\\/g, '/'));
 
   files.forEach((file) => {
     const ext = path.extname(file);

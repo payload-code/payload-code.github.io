@@ -1,0 +1,32 @@
+Payload('test_client_key_3bcr16ohAy8aEcwK3Vffs')
+
+const paymentsClient = new google.payments.api.PaymentsClient({environment: 'TEST'});
+const button = paymentsClient.createButton({onClick: () => console.log('TODO: click handler')});
+
+$('.google-pay-support>div').html(button)
+
+var checkout_form = new Payload.Form({
+  form: $('#checkout-form').get(0),
+  styles: {invalid: 'is-invalid'},
+  autosubmit: false,
+  payment: {
+    processing_id: 'acct_3bcr6L5qxxnXJjNwu4MHg'
+  }
+})
+
+checkout_form.on('declined', function(error) {
+  console.log(error)
+}).on('error', function(error) {
+  console.log(error)
+}).on('processed', function(data) {
+  $('#paid-modal .alert').html('Transaction ID: '+data.transaction_id)
+  $('#paid-modal').modal('show')
+})
+
+checkout_form.googlepay(button, function(active) {
+  if ( !active ) {
+    $('#google-pay')
+      .tooltip({title:'Google Pay not available'})
+      .addClass('disabled')
+  }
+})

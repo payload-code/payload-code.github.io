@@ -17,7 +17,7 @@ const getEntryApps = () => {
 }
 
 const generateHtmlPlugins = () => {
-  const templateFiles = glob.sync(path.join(__dirname, 'src', '*.html'));
+  const templateFiles = glob.sync(path.join(__dirname, 'src', '*.html').replace(/\\/g, '/'));
   return templateFiles.map(item => {
     const name = path.basename(item, '.html');
     return new HtmlWebpackPlugin({

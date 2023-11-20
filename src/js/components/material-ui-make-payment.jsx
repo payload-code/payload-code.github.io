@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import $ from 'jquery';
 import regeneratorRuntime from "regenerator-runtime";
 import {PayloadForm, PayloadInput} from 'payload-react';
@@ -18,24 +18,6 @@ import {
     DialogTitle,
     DialogActions
 } from '@material-ui/core';
-
-function updateClasses(element, isFocused) {
-    const parent = $(element).parent();
-    const prevElement = parent.prev();
-    const hasText = $(element).val().length > 0;
-
-    if (isFocused || hasText) {
-        parent.addClass('Mui-focused');
-        if (prevElement.hasClass('MuiInputLabel-root')) {
-            prevElement.addClass('Mui-focused MuiInputLabel-shrink');
-        }
-    } else {
-        parent.removeClass('Mui-focused');
-        if (prevElement.hasClass('MuiInputLabel-root')) {
-            prevElement.removeClass('Mui-focused MuiInputLabel-shrink');
-        }
-    }
-}
 
 function ProTip() {
     return (
@@ -76,11 +58,20 @@ function App() {
 
 function Payment() {
     const [open, setOpen] = React.useState(false);
+    const [focusState, setFocusState] = useState({ cardNumber: false, expiry: false, cvc: false });
 
     const ref = null;
 
     const handleClose = () => {
         setOpen(false);
+    };
+
+    const handleFocus = (field) => {
+        setFocusState({ ...focusState, [field]: true });
+    };
+
+    const handleBlur = (field, value) => {
+        setFocusState({ ...focusState, [field]: value.length > 0 });
     };
 
     return (
@@ -91,33 +82,33 @@ function Payment() {
             <PayloadInput type="hidden" value="10.00"/>
             <div>
                 <FormControl>
-                    <InputLabel>Card Number</InputLabel>
+                    <InputLabel className={focusState.cardNumber ? "Mui-focused MuiInputLabel-shrink" : ""}>Card Number</InputLabel>
                     <div
                         className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
                         style={{width: '15rem'}}
-                        onFocus={(evt) => updateClasses(evt.target, true)}
-                        onBlur={(evt) => updateClasses(evt.target, false)}>
+                        onFocus={() => handleFocus('cardNumber')}
+                        onBlur={(e) => handleBlur('cardNumber', e.target.value)}>
 
                         <PayloadInput className="MuiInputBase-input MuiInput-input" placeholder=""/>
                     </div>
                 </FormControl>
                 <FormControl>
-                    <InputLabel>Expires</InputLabel>
+                    <InputLabel className={focusState.expiry ? "Mui-focused MuiInputLabel-shrink" : ""}>Expires</InputLabel>
                     <div
                         className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
                         style={{width: '4rem'}}
-                        onFocus={(evt) => updateClasses(evt.target, true)}
-                        onBlur={(evt) => updateClasses(evt.target, false)}>
+                        onFocus={() => handleFocus('expiry')}
+                        onBlur={(e) => handleBlur('expiry', e.target.value)}>
                         <PayloadInput className="MuiInputBase-input MuiInput-input" placeholder=""/>
                     </div>
                 </FormControl>
                 <FormControl>
-                    <InputLabel>CVC</InputLabel>
+                    <InputLabel className={focusState.cvc ? "Mui-focused MuiInputLabel-shrink" : ""}>CVC</InputLabel>
                     <div
                         className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
                         style={{width: '4rem'}}
-                        onFocus={(evt) => updateClasses(evt.target, true)}
-                        onBlur={(evt) => updateClasses(evt.target, false)}>
+                        onFocus={() => handleFocus('cvc')}
+                        onBlur={(e) => handleBlur('cvc', e.target.value)}>
                         <PayloadInput className="MuiInputBase-input MuiInput-input" placeholder=""/>
                     </div>
                 </FormControl>

@@ -1,5 +1,4 @@
-payload.api_key = 'test_client_key_3btrkEyC6xvcByXLthuZx'
-payload.api_url = 'https://api.payload.co'
+payload('test_client_key_3btrkEyC6xvcByXLthuZx')
 
 $('#payment-request .btn-outline-primary').click(function() {
     $(this).closest('.row').before('<div class="row" role="custom-field">'

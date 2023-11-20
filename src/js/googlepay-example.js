@@ -5,7 +5,7 @@ const button = paymentsClient.createButton({onClick: () => console.log('TODO: cl
 
 $('.google-pay-support>div').html(button)
 
-var checkout_form = new Payload.Form({
+const checkout_form = new Payload.Form({
   form: $('#checkout-form').get(0),
   styles: {invalid: 'is-invalid'},
   autosubmit: false,

@@ -1,6 +1,6 @@
 Payload('test_client_key_3bcr16ohAy8aEcwK3Vffs')
 
-var checkout_form = new Payload.Form({
+const checkout_form = new Payload.Form({
   form: $('#checkout-form').get(0),
   styles: {invalid: 'is-invalid'},
   autosubmit: false,

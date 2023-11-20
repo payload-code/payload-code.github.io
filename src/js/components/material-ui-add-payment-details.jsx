@@ -65,8 +65,7 @@ function PaymentMethod() {
     const [disabled, setDisabled] = React.useState(false);
     let form = null;
 
-    const ref = function (node) {
-    };
+    const ref = null;
 
     const handleClose = () => {
         setOpen(false);

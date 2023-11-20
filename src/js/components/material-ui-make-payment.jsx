@@ -76,10 +76,8 @@ function App() {
 
 function Payment() {
     const [open, setOpen] = React.useState(false);
-    var form = null;
 
-    const ref = function (node) {
-    };
+    const ref = null;
 
     const handleClose = () => {
         setOpen(false);

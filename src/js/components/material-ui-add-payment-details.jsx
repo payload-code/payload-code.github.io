@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import $ from 'jquery';
 import regeneratorRuntime from "regenerator-runtime";
 import {PayloadForm, PayloadInput} from 'payload-react';
@@ -61,8 +61,8 @@ function ProTip() {
 }
 
 function PaymentMethod() {
-    const [open, setOpen] = React.useState(false);
-    const [disabled, setDisabled] = React.useState(false);
+    const [open, setOpen] = useState(false);
+    const [disabled, setDisabled] = useState(false);
     let form = null;
 
     const ref = null;

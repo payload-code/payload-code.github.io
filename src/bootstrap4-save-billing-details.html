@@ -1,117 +1,148 @@
 <!doctype html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Payload Examples - Save Billing Details</title>
+    <link rel="shortcut icon" href="https://payload.co/img/favicon.png" />
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <meta name="viewport" content="width=device-width">
-  <title>Payload Examples - Save Billing Details</title>
-  <link rel="shortcut icon" href="https://payload.co/img/favicon.png">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous" />
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      .form-control.pl-input.pl-focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        outline: none;
+      }
 
-  <style>
-    .form-control.pl-input.pl-focus {
-      color: #495057;
-      background-color: #fff;
-      border-color: #80bdff;
-      outline: 0;
-      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
-      outline: none;
-    }
+      .form-control.pl-input.pl-focus.is-invalid {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+      }
+    </style>
+  </head>
 
-    .form-control.pl-input.pl-focus.is-invalid {
-      border-color: #dc3545;
-      box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, .25);
-    }
-  </style>
-</head>
-
-<body>
-  <div class="container">
-    <main role="main" class="mt-4">
-      <div class="jumbotron">
-        <div class="col-sm-8 mx-auto">
-          <h1 class="text-center">Save Billing Details</h1>
-        </div>
-      </div>
-      <form id="payment-method-form" class="my-2 container col-md-6 col-lg-5 px-lg-5" pl-form="payment_method">
-        <!-- <input type="hidden" pl-input="customer_id" value="UPDATE ME"> -->
-        <div class="row pt-2">
-          <div class="form-group col-6 px-1">
-            <label>Account Number</label>
-            <div class="form-control" pl-input="account_number"></div>
-          </div>
-          <div class="form-group col-6 px-1">
-            <label>Routing Number</label>
-            <div class="form-control" pl-input="routing_number"></div>
+  <body>
+    <div class="container">
+      <main role="main" class="mt-4">
+        <div class="jumbotron">
+          <div class="col-sm-8 mx-auto">
+            <h1 class="text-center">Save Billing Details</h1>
           </div>
         </div>
-        <div class="row pt-2">
-          <div class="form-group col-7 px-1">
-            <label>Account Holder Name</label>
-            <input class="form-control w-100" pl-input="account_holder" type="text" placeholder="First Last" />
+        <form
+          id="payment-method-form"
+          class="my-2 container col-md-6 col-lg-5 px-lg-5"
+          pl-form="payment_method">
+          <!-- <input type="hidden" pl-input="customer_id" value="UPDATE ME"> -->
+          <div class="row pt-2">
+            <div class="form-group col-6 px-1">
+              <label>Account Number</label>
+              <div class="form-control" pl-input="account_number"></div>
+            </div>
+            <div class="form-group col-6 px-1">
+              <label>Routing Number</label>
+              <div class="form-control" pl-input="routing_number"></div>
+            </div>
           </div>
-          <div class="form-group col-5 px-1">
-            <label>Account Type</label>
-            <select class="form-control" pl-input="account_type">
-              <option value="checking">Checking</option>
-              <option value="savings">Savings</option>
-            </select>
+          <div class="row pt-2">
+            <div class="form-group col-7 px-1">
+              <label>Account Holder Name</label>
+              <input
+                class="form-control w-100"
+                pl-input="account_holder"
+                type="text"
+                placeholder="First Last" />
+            </div>
+            <div class="form-group col-5 px-1">
+              <label>Account Type</label>
+              <select class="form-control" pl-input="account_type">
+                <option value="checking">Checking</option>
+                <option value="savings">Savings</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="row pt-2">
-          <div class="col px-1"><button class="btn btn-primary" type="submit">Save Billing Details</button></div>
-        </div>
-
-        <div class="row pt-3">
-          <div class="col px-1">
-            <p>For more information on integrating Payload: See the full <a href="https://docs.payload.co">API
-                Documentation</a>.</p>
-            <p>See the <a
-                href="https://github.com/payload-code/payload-code.github.io/blob/master/bootstrap4-save-billing-details.html">source
-                code</a> for this demo on GitHub.</p>
+          <div class="row pt-2">
+            <div class="col px-1">
+              <button class="btn btn-primary" type="submit">
+                Save Billing Details
+              </button>
+            </div>
           </div>
-        </div>
 
-      </form>
+          <div class="row pt-3">
+            <div class="col px-1">
+              <p>
+                For more information on integrating Payload: See the full
+                <a href="https://docs.payload.co">API Documentation</a>.
+              </p>
+              <p>
+                See the
+                <a
+                  href="https://github.com/payload-code/payload-code.github.io/blob/master/bootstrap4-save-billing-details.html"
+                  >source code</a
+                >
+                for this demo on GitHub.
+              </p>
+            </div>
+          </div>
+        </form>
+      </main>
+    </div>
 
-    </main>
-  </div>
-
-  <div id="saved-modal" class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Your Payment Method Was Added!</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Thanks for trying out Payload!</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <div id="saved-modal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Your Payment Method Was Added!</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Thanks for trying out Payload!</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal">
+              Close
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
 
-  <script src="https://payload.co/Payload.js"></script>
-</body>
-
+    <script src="https://payload.co/Payload.js"></script>
+  </body>
 </html>

@@ -10,7 +10,11 @@
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
   "importOrder": [
-    "^./",
-    "^../"
+    "^react",
+    "^react-dom",
+    "^regenerator-runtime",
+    "^@material-ui/core",
+    "^payload-react",
+    "^[./]"
   ]
 }

@@ -1,6 +1,8 @@
-import { FormHelperText, InputLabel } from '@material-ui/core'
-import { PayloadInput } from 'payload-react'
 import React, { useState } from 'react'
+
+import { FormHelperText, InputLabel } from '@material-ui/core'
+
+import { PayloadInput } from 'payload-react'
 
 export default function PayloadTextField({
   attr,

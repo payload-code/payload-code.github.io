@@ -1,3 +1,8 @@
+import React, { useState } from 'react'
+import ReactDOM from 'react-dom'
+
+import regeneratorRuntime from 'regenerator-runtime'
+
 import {
   Box,
   Button,
@@ -12,10 +17,8 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core'
+
 import { PayloadInput, PaymentForm } from 'payload-react'
-import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
-import regeneratorRuntime from 'regenerator-runtime'
 
 import PayloadTextField from './PayloadTextField.jsx'
 

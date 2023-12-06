@@ -1,0 +1,299 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Payload Examples - Push Payment Request</title>
+    <link rel="shortcut icon" href="https://payload.co/img/favicon.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y="
+      crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/4.7.95/css/materialdesignicons.min.css"
+      integrity="sha256-KZNFoTq+/jQUu3YY1OnjLn605i80dhdUJKO3WHGiM6E="
+      crossorigin="anonymous" />
+    <style>
+      .navbar-brand {
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        height: 2.5rem;
+        margin: 0;
+      }
+    </style>
+  <script defer src="js/runtime.js"></script><script defer src="js/push-payment-demo.js"></script></head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <h3 class="container px-5" style="width: 70%">
+          Contactless Payment Request
+        </h3>
+      </div>
+    </nav>
+
+    <div class="container">
+      <main role="main" class="mt-4">
+        <form
+          id="payment-request"
+          class="my-2 container px-5"
+          style="width: 70%">
+          <input type="hidden" name="description" value="Mr Merchant Payment" />
+          <input
+            type="hidden"
+            name="checkout_options[payment_method_preview]"
+            value="true" />
+          <input
+            type="hidden"
+            name="checkout_options[billing_address]"
+            value="false" />
+
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h4 class="d-inline">Mr Merchant</h4>
+              </div>
+            </div>
+            <hr />
+            <div class="row mb-4">
+              <div class="col">
+                <h6 class="font-weight-bold">Customer:</h6>
+                <div class="form-group row">
+                  <label for="inputCustName" class="col-sm-4 col-form-label"
+                    >Name</label
+                  >
+                  <div class="col-sm-8">
+                    <input
+                      type="text"
+                      name="customer[name]"
+                      class="form-control"
+                      id="inputCustName"
+                      placeholder="First Last or Company"
+                      required="" />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputCustEmail" class="col-sm-4 col-form-label"
+                    >Email</label
+                  >
+                  <div class="col-sm-8">
+                    <input
+                      type="email"
+                      name="customer[email]"
+                      class="form-control"
+                      id="inputCustEmail"
+                      placeholder="email@example.com"
+                      required="" />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputCustEmail" class="col-sm-4 col-form-label"
+                    >Phone</label
+                  >
+                  <div class="col-sm-8">
+                    <input
+                      type="tel"
+                      name="customer[phone_number]"
+                      class="form-control"
+                      id="inputCustEmail"
+                      placeholder="(111) 222-3333"
+                      required="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col">
+                <h6 class="font-weight-bold">Example:</h6>
+                <input
+                  type="hidden"
+                  name="additional_datafields[0][section]"
+                  value="Example" />
+                <div>
+                  <div class="form-group row">
+                    <label for="attr_1_0" class="col-sm-4 col-form-label"
+                      >Extra field</label
+                    >
+                    <div class="col-sm-8">
+                      <input
+                        type="hidden"
+                        name="additional_datafields[0][fields][0][title]"
+                        value="Extra field" />
+                      <input
+                        type="text"
+                        name="additional_datafields[0][fields][0][value]"
+                        class="form-control"
+                        id="attr_1_0" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive-sm">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td class="left pl-0">Payment Amount</td>
+                    <td class="text-right pr-0 font-weight-bold">
+                      $
+                      <input
+                        class="form-control col-10 col-md-8 col-lg-4 d-inline"
+                        placeholder="0.00"
+                        name="amount"
+                        required="" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-sm-5"></div>
+            </div>
+            <div class="row">
+              <div class="col text-right row justify-content-end">
+                <div class="text-right col-0 px-1">
+                  <button class="btn btn-primary" type="button" role="email">
+                    <i class="mdi mdi-email"></i> Email Request
+                  </button>
+                </div>
+                <div class="text-right col-0 px-1">
+                  <button class="btn btn-primary" type="button" role="text">
+                    <i class="mdi mdi-cellphone"></i> Text Request
+                  </button>
+                </div>
+                <div class="text-right col-0 px-1">
+                  <button class="btn btn-primary" type="button" role="qr">
+                    <i class="mdi mdi-qrcode"></i> QR Code
+                  </button>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col text-center text-md-left font-weight-bold">
+                Mr Merchant <br /><a
+                  href="{request.billing_contact.website}"
+                  target="_blank"
+                  >www.mrmerchant.com</a
+                >
+              </div>
+              <div class="col text-center text-md-right">
+                123 Example St <br />New York, NY 10001
+              </div>
+            </div>
+
+            <div class="row mt-5 pt-2 border-top">
+              <div class="col px-1">
+                <p>
+                  For more information on integrating Payload: See the full
+                  <a href="https://docs.payload.co">API Documentation</a>.
+                </p>
+                <p>
+                  See the
+                  <a
+                    href="https://github.com/payload-code/payload-code.github.io/blob/master/generate-payment-request.html"
+                    >source code</a
+                  >
+                  for this demo on GitHub.
+                </p>
+              </div>
+            </div>
+          </div>
+        </form>
+      </main>
+    </div>
+
+    <div id="sent-modal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Your Payment Request was Sent!</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Use the button below to view the payment request</p>
+            <a class="btn btn-primary" href="" target="_blank"
+              >View Payment Request</a
+            >
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="qr-modal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title col text-center pr-0 pl-4">
+              Scan the code below to pay
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body bg-light">
+            <div class="row">
+              <div class="col-0 mx-auto p-3 shadow bg-white">
+                <img src="" />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg="
+      crossorigin="anonymous"></script>
+
+    <script
+      src="https://unpkg.com/form-serializer@latest/dist/jquery.serialize-object.min.js"
+      crossorigin="anonymous"></script>
+
+    <script src="https://payload.co/js/payload-api.js"></script>
+    <script src=" plaid-example.js"></script>
+  </body>
+</html>

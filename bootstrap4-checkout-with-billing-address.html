@@ -1,0 +1,288 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Payload Examples - Checkout with Billing Address</title>
+    <link rel="shortcut icon" href="https://payload.co/img/favicon.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous" />
+
+    <style>
+      .form-control.pl-input.pl-focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        outline: none;
+      }
+
+      .form-control.pl-input.pl-focus.is-invalid {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+      }
+    </style>
+  <script defer src="js/runtime.js"></script><script defer src="js/bootstrap4-checkout-with-billing-address.js"></script></head>
+
+  <body>
+    <div class="container">
+      <main role="main" class="mt-4">
+        <div class="jumbotron">
+          <div class="col-sm-8 mx-auto">
+            <h1>Secure Input Form Example</h1>
+          </div>
+        </div>
+        <form
+          id="checkout-form"
+          class="my-2 container col-md-6 col-lg-5 px-lg-5"
+          pl-form="payment">
+          <!-- Uncomment below lines and update value= with id if desired -->
+          <!--
+                    <input type="hidden" pl-input="processing_id" value="<UPDATE ME>">
+                    <input type="hidden" pl-input="customer_id" value="<UPDATE ME>">
+                -->
+          <div class="row">
+            <div class="form-group col-4 px-1">
+              <label>Amount</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">$</span>
+                </div>
+                <input
+                  class="form-control"
+                  pl-input="amount"
+                  type="text"
+                  name="amount"
+                  placeholder="Amount" />
+              </div>
+            </div>
+            <div class="form-group col-8 px-1">
+              <label>Cardholder Name</label>
+              <input
+                class="form-control w-100"
+                pl-input="account_holder"
+                type="text"
+                placeholder="First Last" />
+            </div>
+          </div>
+          <div class="row pt-2">
+            <div class="form-group col-7 px-1">
+              <label>Card Number</label>
+              <div class="form-control" pl-input="card_number"></div>
+            </div>
+            <div class="form-group col-3 px-1">
+              <label>Expiration</label>
+              <div class="form-control" pl-input="expiry"></div>
+            </div>
+            <div class="form-group col-2 px-1">
+              <label>CVC</label>
+              <div class="form-control" pl-input="cvc"></div>
+            </div>
+          </div>
+          <div class="row pt-2">
+            <div class="form-group col-9 px-1">
+              <label>Billing Address</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="123 Example St"
+                pl-input="billing_address[street_address]"
+                required />
+            </div>
+            <div class="form-group col-3 px-1">
+              <label>Unit #</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Apt 2"
+                pl-input="billing_address[unit_number]" />
+            </div>
+          </div>
+          <div class="row pt-2">
+            <div class="form-group col-6 px-1">
+              <label>City</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="City"
+                pl-input="payment_method[billing_address][city]"
+                required="" />
+            </div>
+            <div class="form-group col-3 px-1">
+              <label>State</label>
+              <select
+                class="form-control"
+                pl-input="billing_address[state_province]">
+                <option value="AK">AK</option>
+                <option value="AL">AL</option>
+                <option value="AR">AR</option>
+                <option value="AZ">AZ</option>
+                <option value="CA">CA</option>
+                <option value="CO">CO</option>
+                <option value="CT">CT</option>
+                <option value="DC">DC</option>
+                <option value="DE">DE</option>
+                <option value="FL">FL</option>
+                <option value="GA">GA</option>
+                <option value="HI">HI</option>
+                <option value="IA">IA</option>
+                <option value="ID">ID</option>
+                <option value="IL">IL</option>
+                <option value="IN">IN</option>
+                <option value="KS">KS</option>
+                <option value="KY">KY</option>
+                <option value="LA">LA</option>
+                <option value="MA">MA</option>
+                <option value="MD">MD</option>
+                <option value="ME">ME</option>
+                <option value="MI">MI</option>
+                <option value="MN">MN</option>
+                <option value="MO">MO</option>
+                <option value="MS">MS</option>
+                <option value="MT">MT</option>
+                <option value="NC">NC</option>
+                <option value="ND">ND</option>
+                <option value="NE">NE</option>
+                <option value="NH">NH</option>
+                <option value="NJ">NJ</option>
+                <option value="NM">NM</option>
+                <option value="NV">NV</option>
+                <option value="NY">NY</option>
+                <option value="OH">OH</option>
+                <option value="OK">OK</option>
+                <option value="OR">OR</option>
+                <option value="PA">PA</option>
+                <option value="PR">PR</option>
+                <option value="RI">RI</option>
+                <option value="SC">SC</option>
+                <option value="SD">SD</option>
+                <option value="TN">TN</option>
+                <option value="TX">TX</option>
+                <option value="UT">UT</option>
+                <option value="VA">VA</option>
+                <option value="VT">VT</option>
+                <option value="WA">WA</option>
+                <option value="WI">WI</option>
+                <option value="WV">WV</option>
+                <option value="WY">WY</option>
+              </select>
+            </div>
+            <div class="form-group col-3 px-1">
+              <label>Zipcode</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Zipcode"
+                pl-input="billing_address[postal_code]"
+                required=""
+                maxlength="5" />
+            </div>
+          </div>
+          <div class="row pt-2">
+            <div class="col px-1">
+              <button class="btn btn-primary" type="submit">Pay Now</button>
+            </div>
+          </div>
+
+          <div class="row pt-3">
+            <div class="col px-1">
+              <p>
+                For more information on integrating Payload: See the full
+                <a href="https://docs.payload.co">API Documentation</a>.
+              </p>
+              <p>
+                See the
+                <a
+                  href="https://github.com/payload-code/payload-code.github.io/blob/master/bootstrap4-checkout-with-billing-address.html"
+                  >source code</a
+                >
+                for this demo on GitHub.
+              </p>
+            </div>
+          </div>
+        </form>
+      </main>
+    </div>
+
+    <div id="paid-modal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Your Payment Was Successful!</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Thanks for trying out Payload!</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="declined-modal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Your Payment Declined!</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Please try again</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+
+    <script src="https://payload.co/Payload.js"></script>
+  </body>
+</html>

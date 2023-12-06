@@ -1,0 +1,7 @@
+*.swp
+node_modules
+.idea
+dist
+lib
+client_token
+.env

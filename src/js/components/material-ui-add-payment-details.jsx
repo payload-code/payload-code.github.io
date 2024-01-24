@@ -35,7 +35,7 @@ function ProTip() {
       </Typography>
       <Typography color="textSecondary" style={{ marginTop: 24 }}>
         See the{' '}
-        <Link href="https://github.com/payload-code/payload-code.github.io/blob/master/material-ui-add-payment-details.html">
+        <Link href="https://github.com/payload-code/payload-code.github.io/blob/master/src/js/components/material-ui-add-payment-details.jsx">
           source code
         </Link>{' '}
         for this demo on GitHub.

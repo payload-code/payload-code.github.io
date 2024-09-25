@@ -107,7 +107,7 @@ function Payment() {
       onAuthorized={handleComplete}
       onProcessed={handleComplete}
       styles={{ invalid: null }}
-      autoSubmit={false}
+      preventDefaultOnSubmit={false}
       payment={{ amount: 10, processing_id: 'acct_3btxk1Sh7AyfOzmEIaGfT' }}>
       <Typography component="p" gutterBottom>
         Amount: $10.00

@@ -15,7 +15,7 @@ $('.google-pay-support>div').html(button)
 const checkoutForm = new Payload.Form({
   form: $('#checkout-form').get(0),
   styles: { invalid: 'is-invalid' },
-  autosubmit: false,
+  preventDefaultOnSubmit: false,
   payment: {
     processing_id: 'acct_3bcr6L5qxxnXJjNwu4MHg',
   },

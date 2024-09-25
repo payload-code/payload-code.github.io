@@ -132,7 +132,7 @@
               var checkout_form = new Payload.Form({
                 form: this.checkoutForm.nativeElement,
                 styles: { invalid: 'is-invalid' },
-                autosubmit: false,
+                preventDefaultOnSubmit: false,
               })
 
               checkout_form.on('error', function (error) {

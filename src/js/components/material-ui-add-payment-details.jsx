@@ -95,7 +95,7 @@ function PaymentMethod() {
       onInvalid={handleInvalid}
       onCreated={handleCreated}
       styles={{ invalid: null }}
-      autoSubmit={false}>
+      preventDefaultOnSubmit={true}>
       <div>
         <FormControl>
           <PayloadTextField

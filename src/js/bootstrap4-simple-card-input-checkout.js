@@ -3,7 +3,7 @@ Payload('test_client_key_3btrkEyC6xvcByXLthuZx')
 const checkoutForm = new Payload.Form({
   form: $('#checkout-form').get(0),
   styles: { invalid: 'is-invalid' },
-  preventDefaultOnSubmit: false,
+  preventDefaultOnSubmit: true,
 })
   .on('error', function (error) {
     console.log(error)

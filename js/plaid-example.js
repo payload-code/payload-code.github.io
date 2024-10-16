@@ -14,7 +14,7 @@
   \*********************************/
 /***/ (() => {
 
-eval("Payload('test_client_key_3bcr16ohAy8aEcwK3Vffs')\n\nconst checkout_form = new Payload.Form({\n  form: $('#checkout-form').get(0),\n  styles: { invalid: 'is-invalid' },\n  autosubmit: false,\n  payment: {\n    processing_id: 'acct_3bcr6L5qxxnXJjNwu4MHg',\n  },\n})\n  .on('declined', function (error) {\n    console.log(error)\n  })\n  .on('error', function (error) {\n    console.log(error)\n  })\n  .on('processed', function (data) {\n    $('#paid-modal .alert').html('Transaction ID: ' + data.transaction_id)\n    $('#paid-modal').modal('show')\n  })\n  .plaid($('#checkout-form button').get(0))\n\n\n//# sourceURL=webpack://payload-code.github.io/./src/js/plaid-example.js?");
+eval("Payload('test_client_key_3bcr16ohAy8aEcwK3Vffs')\n\nconst checkout_form = new Payload.Form({\n  form: $('#checkout-form').get(0),\n  styles: { invalid: 'is-invalid' },\n  preventDefaultOnSubmit: true,\n  payment: {\n    processing_id: 'acct_3bcr6L5qxxnXJjNwu4MHg',\n  },\n})\n  .on('declined', function (error) {\n    console.log(error)\n  })\n  .on('error', function (error) {\n    console.log(error)\n  })\n  .on('processed', function (data) {\n    $('#paid-modal .alert').html('Transaction ID: ' + data.transaction_id)\n    $('#paid-modal').modal('show')\n  })\n  .plaid($('#checkout-form button').get(0))\n\n\n//# sourceURL=webpack://payload-code.github.io/./src/js/plaid-example.js?");
 
 /***/ })
 

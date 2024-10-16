@@ -14,7 +14,7 @@
   \*********************************************************/
 /***/ (() => {
 
-eval("Payload('test_client_key_3btrkEyC6xvcByXLthuZx')\n\nconst checkoutForm = new Payload.Form({\n  form: $('#checkout-form').get(0),\n  styles: { invalid: 'is-invalid' },\n  autosubmit: false,\n})\n  .on('error', function (error) {\n    console.log(error)\n  })\n  .on('processed', function (data) {\n    $('#paid-modal').modal('show')\n  })\n  .on('declined', function (data) {\n    $('#declined-modal').modal('show')\n  })\n\n\n//# sourceURL=webpack://payload-code.github.io/./src/js/bootstrap4-simple-card-input-checkout.js?");
+eval("Payload('test_client_key_3btrkEyC6xvcByXLthuZx')\n\nconst checkoutForm = new Payload.Form({\n  form: $('#checkout-form').get(0),\n  styles: { invalid: 'is-invalid' },\n  preventDefaultOnSubmit: true,\n})\n  .on('error', function (error) {\n    console.log(error)\n  })\n  .on('processed', function (data) {\n    $('#paid-modal').modal('show')\n  })\n  .on('declined', function (data) {\n    $('#declined-modal').modal('show')\n  })\n\n\n//# sourceURL=webpack://payload-code.github.io/./src/js/bootstrap4-simple-card-input-checkout.js?");
 
 /***/ })
 

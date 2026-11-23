@@ -8,15 +8,15 @@
  */
 (self["webpackChunkpayload_code_github_io"] = self["webpackChunkpayload_code_github_io"] || []).push([["bootstrap4-save-billing-details"],{
 
-/***/ "./src/js/bootstrap4-save-billing-details.js":
+/***/ "./src/js/bootstrap4-save-billing-details.js"
 /*!***************************************************!*\
   !*** ./src/js/bootstrap4-save-billing-details.js ***!
   \***************************************************/
-/***/ (() => {
+() {
 
-eval("Payload('test_client_key_3btrkEyC6xvcByXLthuZx')\n\nconst pmForm = new Payload.Form({\n  form: $('#payment-method-form').get(0),\n  styles: { invalid: 'is-invalid' },\n  preventDefaultOnSubmit: true,\n}).on('created', function (data) {\n  $('#saved-modal').modal('show')\n})\n\n\n//# sourceURL=webpack://payload-code.github.io/./src/js/bootstrap4-save-billing-details.js?");
+eval("{Payload('test_client_key_3btrkEyC6xvcByXLthuZx')\n\nconst pmForm = new Payload.Form({\n  form: $('#payment-method-form').get(0),\n  styles: { invalid: 'is-invalid' },\n  preventDefaultOnSubmit: true,\n}).on('created', function (data) {\n  $('#saved-modal').modal('show')\n})\n\n\n//# sourceURL=webpack://payload-code.github.io/./src/js/bootstrap4-save-billing-details.js?\n}");
 
-/***/ })
+/***/ }
 
 },
 /******/ __webpack_require__ => { // webpackRuntimeModules
